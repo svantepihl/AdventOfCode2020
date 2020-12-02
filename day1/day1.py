@@ -27,15 +27,13 @@ In this list, the two entries that sum to 2020 are 1721 and 299. Multiplying the
 Of course, your expense report is much larger. Find the two entries that sum to 2020; what do you get if you multiply them together? 
 """
 # Read puzzle input from textfile into a List[str]
-setup = '''
 file = open('day1/input.txt','r')
 content = file.read().split()
-'''
 
-#for index1,value1 in enumerate(content):
-#    for index2, value2 in enumerate(content[index1+1:]):
-#        if int(value1) + int(value2) == 2020:
-#            print(value1 + '*' + value2 + ' = ' + str(int(value1)*int(value2)))
+for index1,value1 in enumerate(content):
+    for index2, value2 in enumerate(content[index1+1:]):
+        if int(value1) + int(value2) == 2020:
+            print(value1 + '*' + value2 + ' = ' + str(int(value1)*int(value2)))
 
 """ 
 --- Part Two ---
