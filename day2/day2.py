@@ -21,7 +21,7 @@ In the above example, 2 passwords are valid. The middle password, cdefg, is not;
 How many passwords are valid according to their policies?
 '''
 
-# Counts the number of valid passwords
+# Counts the number of valid passwords with the given validation function
 def count_valid_psws(psw_list,validation_function):
     valid_psws = 0
     for input in psw_list:
