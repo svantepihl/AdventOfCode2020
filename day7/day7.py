@@ -76,4 +76,4 @@ print(str(gold_holders) + " different bags can contain 'shiny gold.")
 
 
 
-print(f"{count_contents('shiny gold', children)} bags are in a 'shiny gold.'")
+print(str(count_contents('shiny gold', children))+ " bags are in a 'shiny gold.'")
