@@ -46,10 +46,10 @@ def solve_1(commands):
 
         elif op == 'jmp':
             pos += int(arg)
-            
+
         elif op == 'nop':
             pos += 1
-    # Return final position and accumalator value
+    # Return accumalator value
     return acc
 
 
