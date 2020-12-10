@@ -35,7 +35,7 @@ def solve_1(data):
     return None
 
 
-print(solve_1(xmas))
+print('Part 1: ' + str(solve_1(xmas)))
 
 '''
 --- Part Two ---
@@ -60,4 +60,4 @@ def solve_2(data,target):
             current_pos += 1
     return None
 
-print(solve_2(xmas,373803594))
+print('Part 2: ' + str(solve_2(xmas,solve_1(xmas))))
