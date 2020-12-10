@@ -27,7 +27,7 @@ def pairs_exists(numbers,target):
                 return True
     return False
 
-def crack_xmas(data):
+def solve_1(data):
     data = [int(row) for row in data]
     for i in range(25,len(data)):
         if not pairs_exists(data[i-25:i],data[i]):
@@ -35,4 +35,29 @@ def crack_xmas(data):
     return None
 
 
-print(crack_xmas(xmas))
+print(solve_1(xmas))
+
+'''
+--- Part Two ---
+
+The final step in breaking the XMAS encryption relies on the invalid number you just found: 
+you must find a contiguous set of at least two numbers in your list which sum to the invalid number from step 1.
+
+To find the encryption weakness, add together the smallest and largest number in this contiguous range; 
+in this example, these are 15 and 47, producing 62.
+
+What is the encryption weakness in your XMAS-encrypted list of numbers?
+'''
+def solve_2(data,target):
+    data = [int(row) for row in data]
+    for start_pos in range(len(data)-2):
+        current_pos = start_pos
+        current_sum = 0
+        while current_sum < target:
+            current_sum += data[current_pos]
+            if current_sum == target and current_pos - start_pos > 0:
+                return min(data[start_pos:current_pos]) + max(data[start_pos:current_pos])
+            current_pos += 1
+    return None
+
+print(solve_2(xmas,373803594))
