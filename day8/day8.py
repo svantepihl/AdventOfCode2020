@@ -58,8 +58,8 @@ file = open('day8/input.txt','r')
 commands = file.read().strip().split('\n')
 
 # Get result:
-result = solve_1(commands)
-print("Value of accumalator before any repeted commands is: " + str(result))
+result_1 = solve_1(commands)
+print("Value of accumalator before any repeted commands is: " + str(result_1))
 
 '''
 --- Part Two ---
@@ -120,7 +120,6 @@ def solve_2(commands):
 
 
 
-
-
-
-print(solve_2(commands))
+# Get result:
+result_2 = solve_2(commands)
+print("Value of accumalator before end of commands is: " + str(result_2))
