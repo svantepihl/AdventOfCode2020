@@ -23,6 +23,10 @@ jmp -20 would cause the instruction 20 lines above to be executed next.
 
 nop stands for No OPeration - it does nothing. The instruction immediately below it is executed next.
 '''
+# Read input
+file = open('day8/input.txt','r')
+commands = file.read().strip().split('\n')
+
 def solve_1(commands):
     # Keep track of accumalator and current position
     acc = 0
@@ -51,11 +55,6 @@ def solve_1(commands):
             pos += 1
     # Return accumalator value
     return acc
-
-
-# Read input
-file = open('day8/input.txt','r')
-commands = file.read().strip().split('\n')
 
 # Get result:
 result_1 = solve_1(commands)
