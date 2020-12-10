@@ -32,29 +32,25 @@ def solve_1(commands):
     visited = set()
 
 
-    while True:
-        if pos == len(commands) or pos in visited:
-            break
-        else:
-            visited.add(pos)
+    while pos not in visited or pos == len(commands):
+        visited.add(pos)
         
         # Parse command into operation and argument
         command = commands[pos]
         op, arg = command.split()
 
-        #
+        # Perform operation
         if op == 'acc':
             acc += int(arg)
             pos += 1
+
         elif op == 'jmp':
-            if int(arg) + pos < len(commands):
-                pos += int(arg)
-            else:
-                print('Jump command at ' + pos +' leads to out of bounds.')
+            pos += int(arg)
+            
         elif op == 'nop':
             pos += 1
     # Return final position and accumalator value
-    return pos, acc
+    return acc
 
 
 # Read input
@@ -62,5 +58,69 @@ file = open('day8/input.txt','r')
 commands = file.read().strip().split('\n')
 
 # Get result:
-result = solve_1(commands)[1]
+result = solve_1(commands)
 print("Value of accumalator before any repeted commands is: " + str(result))
+
+'''
+--- Part Two ---
+
+After some careful analysis, you believe that exactly one instruction is corrupted.
+
+Somewhere in the program, either a jmp is supposed to be a nop, or a nop is supposed to be a jmp. 
+(No acc instructions were harmed in the corruption of this boot code.)
+
+The program is supposed to terminate by attempting to execute an instruction immediately after the last instruction in the file. 
+By changing exactly one jmp or nop, you can repair the boot code and make it terminate correctly.
+
+Fix the program so that it terminates normally by changing exactly one jmp (to nop) or nop (to jmp). 
+What is the value of the accumulator after the program terminates?
+'''
+def solve_2(commands):
+    # Get position of all possible changes to make
+    possible_changes = [pos for pos in range(len(commands)) if 'jmp' in commands[pos] or 'nop' in commands[pos]]
+    
+    # Iterate through and check change by change
+    for change_pos in possible_changes:
+        
+        # Make copy of orginal commands
+        new_commands = [command for command in commands]
+
+        # Make change to commands
+        if 'jmp' in new_commands[change_pos]:
+            new_commands[change_pos] = new_commands[change_pos].replace('jmp', 'nop')
+        elif 'nop' in new_commands[change_pos]:
+            new_commands[change_pos] = new_commands[change_pos].replace('nop','jmp')
+        
+        # Keep track of important things
+        visited = set()
+        pos = 0
+        acc = 0
+        
+        while pos not in visited:
+
+            # If end of commands reached return current accumulator
+            if pos == len(new_commands):
+                return acc
+
+            # Add current posistion set of visited
+            visited.add(pos)
+        
+            # Parse command into operation and argument
+            command = new_commands[pos]
+            op, arg = command.split()
+
+            # Perform operation
+            if op == 'acc':
+                acc += int(arg)
+                pos += 1
+            elif op == 'jmp':
+                pos += int(arg)
+            elif op == 'nop':
+                pos += 1
+
+
+
+
+
+
+print(solve_2(commands))
