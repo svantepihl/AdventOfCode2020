@@ -51,7 +51,7 @@ For example, suppose you have the same list of bus IDs as above:
 7,13,x,x,59,x,31,19
 An x in the schedule means there are no constraints on what bus IDs must depart at that time.
 '''
-from math import gcd
+import math
 
 def find_time(buses):
     data = [(int(index),int(bus)) for (index,bus) in enumerate(buses) if not bus == 'x']
@@ -71,7 +71,7 @@ def find_time(buses):
             else:
                 if bus not in tested:
                     tested.add(bus)
-                    currentstep = int(bus * currentstep / gcd(bus,currentstep))
+                    currentstep = int(bus * currentstep / math.gcd(bus,currentstep))
     return time
 
 print('Part 2: ' + str(find_time(buses)))
