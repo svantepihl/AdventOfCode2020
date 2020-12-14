@@ -74,8 +74,9 @@ What is the total number of distinct ways you can arrange the adapters to connec
 '''
 
 def solve_2(jolts):
+    jolts.sort()
     result = {0:1}
-    for jolt in sorted(jolts):
+    for jolt in jolts:
         result[jolt] = 0
         if jolt - 1 in result:
             result[jolt]+=result[jolt-1]
