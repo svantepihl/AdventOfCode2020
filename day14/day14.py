@@ -53,6 +53,8 @@ If the bitmask bit is 1, the corresponding memory address bit is overwritten wit
 If the bitmask bit is X, the corresponding memory address bit is floating.
 A floating bit is not connected to anything and instead fluctuates unpredictably. 
 In practice, this means the floating bits will take on all possible values, potentially causing many memory addresses to be written all at once!
+
+Execute the initialization program using an emulator for a version 2 decoder chip. What is the sum of all values left in memory after it completes?
 '''
 def part2(insts):
     vals = {}
