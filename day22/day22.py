@@ -81,7 +81,7 @@ Otherwise, at least one player must not have enough cards left in their deck to 
 '''
 
 
-def recursive_combat(deck_1,deck_2) -> str:
+def recursive_combat(deck_1,deck_2):
     previous_decks = []
     
     while len(deck_1) > 0 and len(deck_2) > 1:
