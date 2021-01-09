@@ -8,7 +8,6 @@ namespace day1
     
     class Program
     {
-
         static void Main(string[] args)
         {
             // Read the file
