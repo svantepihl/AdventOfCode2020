@@ -8,16 +8,16 @@ namespace day1
     
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             // Read the file
-            List<string> puzzleInputStrings = File.ReadAllLines("../../../input-day1.txt").ToList();
+            var puzzleInputStrings = File.ReadAllLines("../../../input-day1.txt").ToList();
 
 
-            HashSet<int> puzzleIntputHashSet = new HashSet<int>();
-            List<int> puzzleIntputInts = new List<int>();
+            var puzzleIntputHashSet = new HashSet<int>();
+            var puzzleIntputInts = new List<int>();
 
-            foreach (string s in puzzleInputStrings) {
+            foreach (var s in puzzleInputStrings) {
                 puzzleIntputHashSet.Add(int.Parse(s));
                 puzzleIntputInts.Add(int.Parse(s));
             }
@@ -27,9 +27,9 @@ namespace day1
             //------------
             
 
-            foreach (int intOne  in puzzleIntputInts)
+            foreach (var intOne  in puzzleIntputInts)
             {
-                int intTwo = 2020 - intOne;
+                var intTwo = 2020 - intOne;
 
                 
                 if (puzzleIntputInts.Contains(intTwo) && intOne != intTwo)
@@ -42,20 +42,20 @@ namespace day1
             //------------
             // Part 2
             //------------
-            int len = puzzleIntputInts.Count();
-            for (int i = 0; i < len-2; i++)
+            var len = puzzleIntputInts.Count();
+            for (var i = 0; i < len-2; i++)
             {
                 if (puzzleIntputInts[i] > 2020)
                 {
                     continue;
                 }
-                for (int ii = i; ii < len-1; ii++)
+                for (var ii = i; ii < len-1; ii++)
                 {
                     if (puzzleIntputInts[i] + puzzleIntputInts[ii] > 2020)
                     {
                         continue;
                     } 
-                    for (int iii = ii; iii < len; iii++)
+                    for (var iii = ii; iii < len; iii++)
                     {
                         if (puzzleIntputInts[i] + puzzleIntputInts[ii] + puzzleIntputInts[iii] == 2020)
                         {

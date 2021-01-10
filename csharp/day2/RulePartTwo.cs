@@ -15,8 +15,8 @@
 
         public bool CheckString(string str)
         {
-            char charOne = str[this.PosOne];
-            char charTwo = str[this.PosTwo];
+            var charOne = str[this.PosOne];
+            var charTwo = str[this.PosTwo];
             return (charOne == this.Chr && charTwo  != this.Chr) || (charOne != this.Chr && charTwo  == this.Chr) ;
         }
     }
