@@ -215,7 +215,7 @@ def validate_pid(pid):
 
 
 # Read input into list of strings
-file = open('day4/input.txt','r')
+file = open('python/day4/input.txt','r')
 input = file.read().split('\n\n')
 
 # Parse strings into list of strings
