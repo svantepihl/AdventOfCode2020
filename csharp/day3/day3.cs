@@ -36,7 +36,7 @@ namespace day3
         }
         
         
-        static void Main(string[] args)
+        static void Main()
         {
             // Our given map
             var map = File.ReadAllLines("../../../input-day3.txt").ToList();
