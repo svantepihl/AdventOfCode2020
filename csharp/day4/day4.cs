@@ -10,7 +10,7 @@ namespace day4
         static void Main(string[] args)
         {
             var rawData = File.ReadAllText("../../../input-day4.txt");
-            var rawStrings = rawData.Split("\r\n\r\n", StringSplitOptions.RemoveEmptyEntries);
+            var rawStrings = rawData.Split(Environment.NewLine + Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
 
             var allPassports = new List<Passport>();
             foreach (var rawString in rawStrings)
