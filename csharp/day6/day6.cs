@@ -41,16 +41,16 @@ namespace day6
 
             foreach (var group in groups)
             {
-                List<char> allAnswered = null;
+                HashSet<char> allAnswered = null;
                 foreach (var person in group)
                 {
                     if (allAnswered == null)
                     {
-                        allAnswered = new List<char>(person);
+                        allAnswered = new HashSet<char>(person);
                     }
                     else
                     {
-                        allAnswered = allAnswered.Intersect(person).ToList();
+                        allAnswered.IntersectWith(person);
                     }
                 }
                 partTwo += allAnswered.Count;
